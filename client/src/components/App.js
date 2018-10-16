@@ -1,21 +1,19 @@
-import React, { Component } from 'react';
-import {BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import './static/css';
-import Home from './pages'
+import React, {PropTypes} from 'react';
+import Header from '../common/Header';
 
-class App extends Component {
+class App extends React.Component{
   render() {
     return (
-      <Router>
-        <div>
-          <Switch>
-            <Route exact path='/' component={Home} />
-          </Switch>
-        </div>
-      </Router>
-
+      <div className="container-fluid">
+        <Header />
+        {this.props.children}
+      </div>
     );
   }
 }
+
+App.propTypes = {
+  children: PropTypes.object.isRequired
+};
 
 export default App;
